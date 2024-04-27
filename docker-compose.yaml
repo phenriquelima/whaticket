@@ -55,7 +55,7 @@ services:
       - "traefik.http.routers.whaticket.entrypoints=web,websecure"
       - "traefik.http.routers.whaticket.tls=true"
       - "traefik.http.routers.whaticket.service=whaticket-frontend"
-      - "traefik.http.services.whaticket.loadbalancer.server.port=3001"
+      - "traefik.http.services.whaticket.loadbalancer.server.port=3000"
       - "traefik.docker.network=portainer_default"
     
 
