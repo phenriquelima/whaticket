@@ -24,7 +24,7 @@ services:
     #   - ./backend/.wwebjs_auth/:/usr/src/app/.wwebjs_auth/
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whaticket-api.rule=Host(`whaticket-api.typebot.live`)" # Troque pelo seu dominio ou subdominio
+      - "traefik.http.routers.whaticket-api.rule=Host(`api-whaticket.typebot.live`)" # Troque pelo seu dominio ou subdominio
       - "traefik.http.routers.whaticket-api.tls.certresolver=leresolver"
       - "traefik.http.routers.whaticket-api.entrypoints=web,websecure"
       - "traefik.http.routers.whaticket-api.tls=true"
