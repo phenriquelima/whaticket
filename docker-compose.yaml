@@ -29,7 +29,7 @@ services:
       - "traefik.http.routers.whaticket-api.entrypoints=web,websecure"
       - "traefik.http.routers.whaticket-api.tls=true"
       - "traefik.http.routers.whaticket-api.service=whaticket-api"
-      - "traefik.http.services.whaticket-api.loadbalancer.server.port=8080"
+      - "traefik.http.services.whaticket-api.loadbalancer.server.port=3000"
       - "traefik.docker.network=portainer_default"
     
 
@@ -41,7 +41,7 @@ services:
       context: ./frontend
       dockerfile: ./Dockerfile
     environment:
-      - URL_BACKEND=whaticket-api:8080
+      - URL_BACKEND=whaticket-api:3000
       - REACT_APP_BACKEND_URL=${BACKEND_URL:-http://localhost}:${PROXY_PORT:-8080}/
       - FRONTEND_SERVER_NAME=${FRONTEND_SERVER_NAME}
       - BACKEND_SERVER_NAME=${BACKEND_SERVER_NAME}
@@ -54,8 +54,8 @@ services:
       - "traefik.http.routers.whaticket.tls.certresolver=leresolver"
       - "traefik.http.routers.whaticket.entrypoints=web,websecure"
       - "traefik.http.routers.whaticket.tls=true"
-      - "traefik.http.routers.whaticket.service=whaticket-frontend"
-      - "traefik.http.services.whaticket.loadbalancer.server.port=3000"
+      - "traefik.http.routers.whaticket.service=whaticket"
+      - "traefik.http.services.whaticket.loadbalancer.server.port=80"
       - "traefik.docker.network=portainer_default"
     
 
